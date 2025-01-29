@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { PiThreadsLogoFill } from "react-icons/pi";
+
 
 function Footer() {
     return (
@@ -24,13 +26,21 @@ function Footer() {
                     </div>
                     <div>
                         <h2 className="text-xl font-bold mb-4">Contact Us</h2>
-                        <p className="text-gray-400">Email: raibagipavan14@gmail.com</p>
-                        <p className="text-gray-400">Phone: +91 8884279145</p>
+                        <p className="text-gray-400">Email: ashokafae@gmail.com</p>
+                        <p className="text-gray-400">Phone: +91-88842 79145 | +91-76665 09148</p>
                         <div className="flex space-x-4 mt-4">
                             <a href="facebook" className="text-gray-400 hover:text-white"><FaFacebookF /></a>
-                            <a href="g" className="text-gray-400 hover:text-white"><FaTwitter /></a>
-                            <a href="i" className="text-gray-400 hover:text-white"><FaInstagram /></a>
-                            <a href="l" className="text-gray-400 hover:text-white"><FaLinkedinIn /></a>
+
+                            {/* <a href="https://www.threads.net/@ashoka_florist" className="text-gray-400 hover:text-white"><FaTwitter /></a> */}
+
+                            <a href="https://www.instagram.com/ashoka_florist?igsh=MWU1YWJ2d3U4dm5m" className="text-gray-400 hover:text-white"><FaInstagram /></a>
+
+                            
+                            <a href="https://www.threads.net/@ashoka_florist" className="text-gray-400 hover:text-white"><PiThreadsLogoFill />
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/pavanraibagi/" className="text-gray-400 hover:text-white"><FaLinkedinIn /></a>
+
                         </div>
                     </div>
                 </div>

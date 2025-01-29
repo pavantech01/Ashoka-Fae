@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+const BASE_URL = "http://localhost:5000"; // Base URL for API
+
 const Events = () => {
     const [events, setEvents] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -14,11 +16,14 @@ const Events = () => {
 
         const fetchEvents = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/events");
+                // const response = await axios.get("http://localhost:5000/api/events");
+                const response = await axios.get(`${BASE_URL}/api/events`); 
+
                 if (isMounted) {
                     setEvents(response.data.events);
                 }
             } catch (err) {
+                console.error("Error fetching events:", err); 
                 if (isMounted) {
                     setError("Failed to fetch events.");
                 }
@@ -78,13 +83,14 @@ const Events = () => {
     const handleDeleteEvent = async (eventId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/events/${eventId}`, {
+            await axios.delete(`${BASE_URL}/api/events/${eventId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             setEvents(events.filter((event) => event._id !== eventId));
         } catch (err) {
+            console.error("Error deleting event:", err); 
             setError('Failed to delete event.');
         }
     };

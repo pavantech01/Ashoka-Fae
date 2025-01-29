@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+
+const BASE_URL = "http://localhost:5000"; // Base URL for API
+
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -16,7 +19,7 @@ const Products = () => {
 
         const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/products");
+                const response = await axios.get(`${BASE_URL}/api/products`);
                 if (isMounted) {
                     setProducts(response.data.products);
                 }
@@ -62,7 +65,7 @@ const Products = () => {
     const handleDeleteProduct = async (productId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+            await axios.delete(`${BASE_URL}/api/products/${productId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

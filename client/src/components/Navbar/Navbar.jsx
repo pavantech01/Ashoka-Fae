@@ -62,58 +62,49 @@ function Navbar() {
                     <Link to="/about" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200 gap-8">About</Link>
                 </li>
                 <li>
-                    <Link to="/services" className="text-gray-800 text-base no-underline hover:underline transition duration-200">Services</Link>
+                    <Link to="/services" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">Services</Link>
                 </li>
                 {/* <li>
-                    <Link to="/pricing" className="text-gray-800 text-base no-underline hover:underline transition duration-200">Pricing</Link>
+                    <Link to="/pricing" className="text-gray-800 text-2xl no-underline hover:underline transition duration-200">Pricing</Link>
                 </li> */}
                 <li>
-                    <Link to="/events" className="text-gray-800 text-base no-underline hover:underline transition duration-200">Events</Link>
+                    <Link to="/events" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">Events</Link>
                 </li>
                 <li>
-                    <Link to="/products" className="text-gray-800 text-base no-underline hover:underline transition duration-200">
+                    <Link to="/products" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">
                     Products
                     </Link>
                 </li>
                 <li>
-                    <Link to="/gallery" className="text-gray-800 text-base no-underline hover:underline transition duration-200">Gallery</Link>
+                    <Link to="/gallery" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">Gallery</Link>
                 </li>
                 <li>
-                    <Link to="/contact" className="text-gray-800 text-base no-underline hover:underline transition duration-200">Contact</Link>
+                    <Link to="/contact" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">Contact</Link>
                 </li>
 
                 {isLoggedIn ? (
                     <>
                         <li>
-                            <Link to="/profile" className="text-gray-800 text-base bg-yellow-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Profile</Link>
+                            <Link to="/profile" className="text-gray-800 text-2xl bg-yellow-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Profile</Link>
                         </li>
                         {/* {isAdmin && (
                             <li>
-                                <Link to="/admin" className="text-gray-800 text-base bg-blue-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Admin Dashboard</Link>
+                                <Link to="/admin" className="text-gray-800 text-2xl bg-blue-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Admin Dashboard</Link>
                             </li>
                         )} */}
                         <li>
-                            <Link to="#" onClick={handleLogout} className="text-white text-base bg-red-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Logout</Link>
+                            <Link to="#" onClick={handleLogout} className="text-white text-2xl bg-red-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Logout</Link>
                         </li>
                     </>
                 ) : (
                     // <li>
-                    //     <Link to="/signup" className="text-white text-base bg-green-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Signup</Link>
+                    //     <Link to="/signup" className="text-white text-2xl bg-green-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Signup</Link>
                     // </li>
                     <li>
-                        <Link to="/login" className="text-white text-base bg-blue-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Login</Link>
+                        <Link to="/login" className="text-white text-2xl bg-blue-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Login</Link>
                     </li>
                 )}
             </ul>
-
-            {/* Hamburger Button for Mobile */}
-            {/* <button
-                id="hamburger-button"
-                onClick={toggleMenu}
-                className={`md:hidden flex flex-col justify-center items-center focus:outline-none transition duration-200 absolute right-4 top-1/2 transform -translate-y-1/2`}
-                aria-label="Toggle navigation"
-                aria-expanded={isMenuOpen}
-            > */}
 
             <button
                 id="hamburger-button"

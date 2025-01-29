@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const BASE_URL = "http://localhost:5000"; // Base URL for API
+
 const EventsAdd = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -51,7 +53,7 @@ const EventsAdd = () => {
         const token = localStorage.getItem('token'); // Ensure the token exists
 
         try {
-            const response = await axios.post('http://localhost:5000/api/events', 
+            const response = await axios.post(`${BASE_URL}/api/events`, 
             formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

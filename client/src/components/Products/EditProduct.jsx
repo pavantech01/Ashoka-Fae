@@ -2,6 +2,9 @@ import React, { useState} from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
+const BASE_URL = "http://localhost:5000"; 
+
+
 const EditProduct = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -27,7 +30,7 @@ const EditProduct = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:5000/api/products/${product.id}`, formData, {
+            await axios.put(`${BASE_URL}/api/products/${product.id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
