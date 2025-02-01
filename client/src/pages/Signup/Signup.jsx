@@ -51,16 +51,16 @@ const response = await axios.post(`${Base_URL}/api/auth/register`, {
                 confirmPassword // Include confirmPassword in the request
             });
 
-            if (response.data.success) {
+             if (response.data.token) {
                 setSuccess(response.data.message);
                 // Store token and user data
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-
-
-                // Optional: Redirect to dashboard/home
-                // history.push('/home'); 
-                window.location.href = '/';
+                
+                // Redirect to login page after successful registration
+                setTimeout(() => {
+                    navigate('/login', { replace: true });
+                }, 1000);
             }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.');
