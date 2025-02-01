@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { Base_URL } from '../../utils/api'; // Import Base_URL
+
 const Profile = () => {
     const [user, setUser] = useState({ name: '', email: '' });
     const [isEditing, setIsEditing] = useState(false);
@@ -10,12 +12,13 @@ const Profile = () => {
         const fetchUserProfile = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:5000/api/user/profile', {
+                const response = await axios.get(`${Base_URL}/api/user/profile`, { 
+
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(response.data);
             } catch (err) {
-                setError('Failed to fetch user profile.');
+                setError('Failed to fetch user profile...contact us');
             }
         };
 
@@ -25,7 +28,8 @@ const Profile = () => {
     const handleUpdate = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put('http://localhost:5000/api/user/updateProfile', user, {
+                const response = await axios.put(`${Base_URL}/api/user/updateProfile`, user, {
+
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUser(response.data);
@@ -35,9 +39,10 @@ const Profile = () => {
         }
     };
 
+    
     return (
-        <div className="min-h-screen bg-gray-100">
-            <div className="container mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="min-h-screen bg-gray-100 relative top-20">
+            <div className="container mx-auto p-6 bg-white rounded-lg shadow-md relative top-24">
                 <h2 className="text-2xl font-bold text-gray-700">Profile</h2>
                 {error && <p className="text-red-500">{error}</p>}
                 <div className="mt-4 space-y-4">

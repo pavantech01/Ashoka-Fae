@@ -48,7 +48,7 @@ function Navbar() {
         <nav className="bg-white shadow-md p-6 flex justify-between items-center w-full fixed top-0 z-50 h-20">
             {/* Logo Section */}
             <Link to="/" className="text-xl font-bold text-pink-600 no-underline">
-                <img src="/ashoka-events-logo.png" alt="Ashoka Events Logo" className="text-2xl font-bold text-pink-600 no-underline w-16"/>
+                <img src="/ashoka-events-logo.png" alt="Ashoka Events Logo" className="text-2xl font-bold text-pink-600 no-underline w-16" />
             </Link>
 
             {/* Full Navigation Links for Tablet and Larger Screens */}
@@ -72,7 +72,7 @@ function Navbar() {
                 </li>
                 <li>
                     <Link to="/products" className="text-gray-800 text-2xl no-underline hover:underline hover:text-blue-400 transition duration-200">
-                    Products
+                        Products
                     </Link>
                 </li>
                 <li>
@@ -87,11 +87,11 @@ function Navbar() {
                         <li>
                             <Link to="/profile" className="text-gray-800 text-2xl bg-yellow-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Profile</Link>
                         </li>
-                        {/* {isAdmin && (
+                        {isAdmin && (
                             <li>
                                 <Link to="/admin" className="text-gray-800 text-2xl bg-blue-400 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Admin Dashboard</Link>
                             </li>
-                        )} */}
+                        )}
                         <li>
                             <Link to="#" onClick={handleLogout} className="text-white text-2xl bg-red-500 py-1 px-3 rounded-full no-underline hover:underline transition duration-200">Logout</Link>
                         </li>
@@ -130,7 +130,8 @@ function Navbar() {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div id="mobile-menu" className="absolute top-16 right-0 bg-white shadow-lg w-48 z-50 md:hidden">
+                <div id="mobile-menu"
+                    className="absolute top-16 right-0 bg-white shadow-lg w-48 z-50 md:hidden">
                     <ul className="list-none p-4 space-y-2 ">
                         <li>
                             <Link to="/" className="block text-gray-800 py-2 px-4 text-center no-underline transition duration-200">Home</Link>
@@ -142,7 +143,7 @@ function Navbar() {
                             <Link to="/services" className="block text-gray-800 py-2 px-4 text-center no-underline transition duration-200">Services</Link>
                         </li>
                         <li>
-                            <Link to="/pricing" className="block text-gray-800 py-2 px-4 text-center no-underline transition duration-200">Pricing</Link>
+                            <Link to="/products" className="block text-gray-800 py-2 px-4 text-center no-underline transition duration-200">Products</Link>
                         </li>
                         <li>
                             <Link to="/events" className="block text-gray-800 py-2 px-4 text-center no-underline transition duration-200">Events</Link>
@@ -155,21 +156,21 @@ function Navbar() {
                         </li>
                         {isLoggedIn ? (
                             <>
-                                <li>
+                                {/* <li>
                                     <Link to="/profile" className="block text-gray-800 py-2 px-4 text-center bg-yellow-400 rounded-full no-underline hover:underline transition duration-200">Profile</Link>
-                                </li>
-                                {isAdmin && (
+                                </li> */}
+                                {/* {isAdmin && (
                                     <li>
                                         <Link to="/admin" className="block text-gray-800 py-2 px-4 text-center bg-blue-400 rounded-full no-underline hover:underline transition duration-200">Admin Dashboard</Link>
                                     </li>
-                                )}
+                                )} */}
                                 <li>
                                     <Link to="#" onClick={handleLogout} className="block text-white py-2 px-4 text-center bg-red-500 rounded-full no-underline hover:no-underline transition duration-200">Logout</Link>
                                 </li>
                             </>
                         ) : (
                             <li>
-                                <Link to="/signup" className="block text-white py-2 px-4 text-center bg-green-500 rounded-full no-underline hover:underline transition duration-200">Signup</Link>
+                                <Link to="/login" className="block text-white py-2 px-4 text-center bg-green-500 rounded-full no-underline hover:underline transition duration-200">Login</Link>
                             </li>
                         )}
                     </ul>

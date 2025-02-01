@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { Base_URL } from '../utils/api'; // Import Base_URL
 
 const Razorpay = () => {
     const location = useLocation();
@@ -8,7 +9,7 @@ const Razorpay = () => {
     const handlePayment = async () => {
         try {
             // Step 1: Create an order on the server
-            const response = await fetch('http://localhost:5000/api/payments/create-order', {
+            const response = await fetch(`${Base_URL}/api/payments/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ const Razorpay = () => {
                     description: 'Order Payment',
                     order_id: orderData.id,
                     handler: async (response) => {
-                        const verifyResponse = await fetch('http://localhost:5000/api/payments/verify', {
+                        const verifyResponse = await fetch(`${Base_URL}/api/payments/verify`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

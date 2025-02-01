@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,7 +10,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+const response = await axios.post(`${Base_URL}/api/auth/login`, { email, password });
+
             const { token, user } = response.data;
             // Store token and user information (e.g., in local storage)
             localStorage.setItem('role', user.role); // Store user role

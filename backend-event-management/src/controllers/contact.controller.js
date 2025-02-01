@@ -9,7 +9,7 @@ exports.sendEmail = async (req, res) => {
         service: 'gmail', // Use your email service
         auth: {
             user: 'ashokafae@gmail.com', // Comapny email
-            pass: 'your-email-password' // Your email password
+            pass: 'Ashoka$$2025' // Your email password
         }
     });
 

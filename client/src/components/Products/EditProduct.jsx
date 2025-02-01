@@ -1,9 +1,7 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-
-const BASE_URL = "http://localhost:5000"; 
-
+import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const EditProduct = () => {
     const location = useLocation();
@@ -30,7 +28,7 @@ const EditProduct = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`${BASE_URL}/api/products/${product.id}`, formData, {
+            await axios.put(`${Base_URL}/api/products/${product.id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",

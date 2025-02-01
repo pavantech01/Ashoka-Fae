@@ -25,11 +25,17 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  },
   role: {
     type: String,
-    enum: ['user', 'admin'], // Added role field
+    enum: ['user', 'admin'],
     default: 'user'
-  }, 
+  },
+  verificationToken: String,
+  verificationTokenExpiry: Date,
   createdAt: {
     type: Date,
     default: Date.now

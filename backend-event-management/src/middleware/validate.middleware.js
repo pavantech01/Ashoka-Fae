@@ -2,24 +2,9 @@ const { body, validationResult } = require('express-validator');
 const { ApiError } = require('../utils/apiError');
 
 const validations = {
-    // register: [
-    //     body('fullName').trim().notEmpty().withMessage('Full name is required'),
-    //     body('phoneNumber').trim().notEmpty().withMessage('Phone number is required'),
-    //     body('email').isEmail().withMessage('Invalid email address'),
-    //     body('password')
-    //         .isLength({ min: 8 })
-    //         .withMessage('Password must be at least 8 characters long'),
-    //     body('confirmPassword')
-    //         .custom((value, { req }) => {
-    //             if (value !== req.body.password) {
-    //                 throw new Error('Passwords do not match');
-    //             }
-    //             return true;
-    //         })
-    // ],
     register: [
         body('fullName').trim().notEmpty().withMessage('Full name is required'),
-        body('phone').trim().notEmpty().withMessage('Phone number is required'), // Change 'phoneNumber' to 'phone'
+        body('phone').trim().notEmpty().withMessage('Phone number is required'), // Updated to 'phoneNumber'
         body('email').isEmail().withMessage('Invalid email address'),
         body('password')
             .isLength({ min: 8 })

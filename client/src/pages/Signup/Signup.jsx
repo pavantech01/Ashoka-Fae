@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 // import { useHistory } from 'react-router-dom';
+import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const Signup = () => {
     const [fullName, setFullName] = useState('');
@@ -41,7 +42,8 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', {
+const response = await axios.post(`${Base_URL}/api/auth/register`, {
+
                 fullName,
                 phone,
                 email,
@@ -58,7 +60,7 @@ const Signup = () => {
 
                 // Optional: Redirect to dashboard/home
                 // history.push('/home'); 
-                window.location.href = '/home';
+                window.location.href = '/';
             }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.');

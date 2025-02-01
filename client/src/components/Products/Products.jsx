@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
-
-const BASE_URL = "http://localhost:5000"; // Base URL for API
+import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -19,7 +17,7 @@ const Products = () => {
 
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/api/products`);
+                const response = await axios.get(`${Base_URL}/api/products`);
                 if (isMounted) {
                     setProducts(response.data.products);
                 }
@@ -65,7 +63,7 @@ const Products = () => {
     const handleDeleteProduct = async (productId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`${BASE_URL}/api/products/${productId}`, {
+            await axios.delete(`${Base_URL}/api/products/${productId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -100,7 +98,7 @@ const Products = () => {
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        ))} 
                     </div>
                 </div>
             </div>
@@ -128,7 +126,6 @@ const Products = () => {
                     </div>
                 )}
                 <div className="Testing-Feature01 mb-4">
-                    
                     <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
@@ -151,14 +148,14 @@ const Products = () => {
                     />
                 </div>
                 <button
-                        onClick={() => {
-                            setSelectedCategory("");
-                            setSearchTerm("");
-                        }}
-                        className="px-4 py-2 bg-yellow-400  text-white rounded-lg hover:bg-yellow-500 transition ml-2"
-                    >
-                        Clear
-                    </button>
+                    onClick={() => {
+                        setSelectedCategory("");
+                        setSearchTerm("");
+                    }}
+                    className="px-4 py-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 transition ml-2"
+                >
+                    Clear
+                </button>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
                     {filteredProducts.map((product) => (
                         <div

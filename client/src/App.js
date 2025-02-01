@@ -22,6 +22,9 @@ import EditEventForm from './components/EditEventForm';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Cart from './pages/Cart';
 import Razorpay from './pages/Razorpay';
+import VerifyEmail from './pages/VerifyPage/VerifyEmail';
+import Admin from './pages/Admin/Admin';
+import TopButton from './components/TopButton';
 
 function App() {
   const [isPaymentActive, setIsPaymentActive] = useState(false); // State to track payment process
@@ -47,6 +50,7 @@ function App() {
     <div className='max-w-full mx-auto p-0 md:p-0 overflow-x-hidden'>
       <Router>
         <Navbar isLoggedIn={isLoggedIn} userRole={userRole} />
+        <TopButton/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -55,7 +59,8 @@ function App() {
           <Route path="/events/add" element={<EventsAdd />} />
           <Route path="/events/edit" element={<EditEventForm />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/detail" element={<ProductDetail />} /> {/* Route for product details */}
+          <Route path="/products/detail" element={<ProductDetail />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
@@ -66,6 +71,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/cart" element={<Cart setIsPaymentActive={setIsPaymentActive} />} />
           <Route path="/razorpay" element={isPaymentActive ? <Razorpay /> : <Navigate to="/" />} />
+          {/* <Route path="/verify-email" component={VerifyEmail} /> */}
+          <Route path="/verify-email" element={<VerifyEmail />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />

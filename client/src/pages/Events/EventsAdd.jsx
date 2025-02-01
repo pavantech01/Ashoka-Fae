@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const BASE_URL = "http://localhost:5000"; // Base URL for API
+import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const EventsAdd = () => {
     const [title, setTitle] = useState('');
@@ -45,7 +44,6 @@ const EventsAdd = () => {
         formData.append('price', price);
         formData.append('category', category);
 
-
         if (image) {
             formData.append('image', image);
         }
@@ -53,14 +51,12 @@ const EventsAdd = () => {
         const token = localStorage.getItem('token'); // Ensure the token exists
 
         try {
-            const response = await axios.post(`${BASE_URL}/api/events`, 
-            formData, {
+            const response = await axios.post(`${Base_URL}/api/events`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`, 
                 },
             });
-            
 
             setSuccess('Event created successfully!');
             window.location.href = '/events';
