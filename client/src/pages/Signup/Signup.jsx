@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Base_URL } from '../../utils/api'; // Import Base_URL
 
 const Signup = () => {
@@ -12,7 +12,7 @@ const Signup = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    // const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
