@@ -26,8 +26,8 @@ temp/
 .idea/
 
 # Configuration files
-src/config/cloudinary.config.js
-src/config/razorpay.config.js
+# src/config/cloudinary.config.js
+# src/config/razorpay.config.js
 
 # Other files to ignore
 .DS_Store
